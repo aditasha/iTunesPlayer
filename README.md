@@ -43,6 +43,8 @@ This project was created using Kotlin, utilizing RecylerView and Retrofit to sho
 ### Supported Features
 * Artist song/music searches
 * Song previews streaming with play/pause, previous/next and progress bar
+* Song playing indicator
+* Album art, artist name and album name shown on list
 
 ### Built With
 
