@@ -45,10 +45,9 @@ class MediaPlayerFragment : Fragment() {
 
         _binding = FragmentMediaPlayerBinding.inflate(inflater, container, false)
 
-        binding.playPause.setOnCheckedChangeListener { _, b ->
-            if (!ready) {
-                mediaPlayer?.prepareAsync()
-            }
+        setupMediaPlayer()
+
+        binding.playPause.setOnCheckedChangeListener { _, _ ->
             if (mediaPlayer?.isPlaying as Boolean) {
                 mediaPlayer?.pause()
             } else {
@@ -71,8 +70,6 @@ class MediaPlayerFragment : Fragment() {
                 loadDataSource(currentPosition)
             }
         }
-
-        setupMediaPlayer()
         return binding.root
     }
 
