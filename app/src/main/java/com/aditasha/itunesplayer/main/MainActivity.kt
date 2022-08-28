@@ -78,15 +78,22 @@ class MainActivity : AppCompatActivity() {
                         is State.Loading -> {
                             showLoading(true)
                             showFailed(false, "")
+                            binding.infoText.isVisible = false
                         }
                         is State.Error -> {
                             showLoading(false)
                             showFailed(true, it.message.toString())
+                            binding.infoText.isVisible = false
                         }
                         is State.Success -> {
                             showLoading(false)
                             showFailed(false, "")
+                            binding.infoText.isVisible = false
                             if (it.data != null) {
+                                if (it.data.isEmpty()) {
+                                    binding.infoText.text = getString(R.string.no_data)
+                                    binding.infoText.isVisible = true
+                                }
                                 musicAdapter.addData(it.data)
                             }
                         }
